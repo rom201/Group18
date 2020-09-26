@@ -11,37 +11,24 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-public class User_Story_2_Test_Suit {
+public class User_Story_2_AC_5 {
+
     WebDriver driver;
 
     @BeforeMethod
     public void set_Up(){
         driver = WebDriverFactory.getDriver("chrome");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://login2.nextbasecrm.com/");
+        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
+        driver.findElement(By.xpath("//span[.='Task']")).click();
     }
-
-    @Test
-    public void User_Story_2_AC_1(){
-
-    }
-
-    @Test
-    public void User_Story_2_AC_2(){
-
-    }
-
 
     @Test//US1_AC#5:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
     public void add_Mention() throws InterruptedException {
-
-        //beforeMethod
-        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
-        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
-        //US#2 Only:
-        driver.findElement(By.xpath("//span[.='Task']")).click();
-
-        //AC#5 Add mention icon and select contacts from the lists provided in dropdown
         driver.findElement(By.xpath("//div[@id='feed-add-post-content-tasks']//span[@title='Add mention']")).click();
         WebElement mention = driver.findElement(By.xpath("//span[@class='bx-finder-groupbox-content']//a[8]"));//a[i] -->can be more
         String expectResult = mention.getText();
@@ -62,4 +49,5 @@ public class User_Story_2_Test_Suit {
         driver.manage().window().maximize();
         driver.close();
     }
+
 }
