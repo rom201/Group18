@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_AC_9 {
-    public class UserStory1_AC_9 {
+
         WebDriver driver;
 
         @BeforeMethod
@@ -43,12 +43,17 @@ public class User_Story_1_AC_9 {
             WebElement resultText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
             Assert.assertTrue(resultText.isDisplayed(),"Result text is not dispalyed.Verification FAILED!!");
 
+            WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
 
+            Assert.assertTrue(errorText.isDisplayed(),"Error text is not displayed.Verification Failed!!!");
+
+            errorText.click();
         }
 
         @AfterMethod
-        public void close(){
+        public void close() throws InterruptedException {
+            Thread.sleep(3000);
             driver.close();
         }}
 
-}
+
