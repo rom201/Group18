@@ -63,13 +63,11 @@ public class AC_8   {
         //driver.findElement(By.linkText("Tasks")).click();
         //String actuallyResult2 = driver.findElement(By.xpath("//table[@class='main-grid-table']")).getText();
         //Assert.assertTrue(actuallyResult2.contains(expectResult));
-
         }
 
     @AfterMethod
     public void afterMethod(){
        driver.close();
     }
-
 
 }
