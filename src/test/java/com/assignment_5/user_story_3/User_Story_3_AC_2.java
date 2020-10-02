@@ -13,23 +13,14 @@ import org.testng.annotations.Test;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class User_Story_3_Test_Suit {
+public class User_Story_3_AC_2 {
     WebDriver driver;
 
     @BeforeMethod
     public void set_Up(){
         driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://login2.nextbasecrm.com/");
-    }
-
-    @Test
-    public void User_Story_3_AC_1(){
-
-    }
-
-    @Test
-    public void User_Story_3_AC_2(){
-        //PRE-CONDITION
+        //TODO: AFTER THIS LINE ADD TO TEST WHEN TRANSFERING TO TEST SUIT
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement usernameBoxElement = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
         usernameBoxElement.sendKeys("helpdesk18@cybertekschool.com");
@@ -40,7 +31,12 @@ public class User_Story_3_Test_Suit {
         WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
         messageButtonElement.click();
 
-        //TEST
+
+    }
+
+    @Test //User Story#3 AC#2  User should be able to attach links by clicking on the link icon.
+    public void linkAttaching(){
+
         WebElement linkButton = driver.findElement(By.xpath("//span[@class='bxhtmled-top-bar-btn bxhtmled-button-link']"));
         linkButton.click();
 
@@ -88,7 +84,6 @@ public class User_Story_3_Test_Suit {
         Assert.assertEquals(expectedTitle,actualTitle,"Actual title doesn't match the expected. Test FAILED!!!");
 
         // NOT PART OF THE TEST, JUST DELETING THE POST THAT HAS BEEN POSTED
-        // THIS STEP IS NEEDED IN ORDER TO RUN THE TEST AGAIN, BECAUSE SAME POST CANNOT BE DONE MORE THAN ONCE
 
         for (String eachHandle : windowHandles) {
             if (driver.switchTo().window(eachHandle).getTitle().equals("(3) Portal")){
@@ -104,10 +99,26 @@ public class User_Story_3_Test_Suit {
 
         Alert alert = driver.switchTo().alert();
         alert.accept();
+
     }
+
+
+
+
+
+
+
+
 
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
     }
+
+
+
+
+
+
+
 }

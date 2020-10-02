@@ -11,28 +11,14 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class User_Story_1_Test_Suit {
+public class User_Story_1_AC_8 {
     WebDriver driver;
 
     @BeforeMethod
     public void set_Up(){
         driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://login2.nextbasecrm.com/");
-    }
-
-    @Test
-    public void User_Story_1_AC_1(){
-
-    }
-
-    @Test
-    public void User_Story_1_AC_2(){
-
-    }
-
-    @Test
-    public void User_Story_1_AC_7(){
-        //PRE-CONDITION
+        //TODO: AFTER THIS LINE ADD TO TEST WHEN TRANSFERING TO TEST SUIT
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement usernameBoxElement = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
         usernameBoxElement.sendKeys("helpdesk18@cybertekschool.com");
@@ -42,29 +28,10 @@ public class User_Story_1_Test_Suit {
         logInButtonElement.click();
         WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
         messageButtonElement.click();
-
-        //TEST
-        WebElement visualEditorButtonElement = driver.findElement(By.xpath("//span[@id='lhe_button_editor_blogPostForm']"));
-        visualEditorButtonElement.click();
-
-        WebElement editorTextBarElement = driver.findElement(By.xpath("//div[@class='bxhtmled-toolbar-cnt']"));
-        Assert.assertTrue(editorTextBarElement.isDisplayed(),"Editor-text bar is not displayed. Test FAILED!!!");
     }
 
-    @Test
-    public void User_Story_1_AC_8(){
-        //PRE-CONDITION
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        WebElement usernameBoxElement = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
-        usernameBoxElement.sendKeys("helpdesk18@cybertekschool.com");
-        WebElement passwordBoxElement = driver.findElement(By.xpath("//input[@name='USER_PASSWORD']"));
-        passwordBoxElement.sendKeys("UserUser");
-        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
-        logInButtonElement.click();
-        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
-        messageButtonElement.click();
-
-        //TEST
+    @Test //User Story#1 AC#8 User should be able to click on the Topic icon to see the Message Topic text box displays on top of the message box.
+    public void topicButton(){
         WebElement topicButtonElement = driver.findElement(By.xpath("//span[@onclick='showPanelTitle_blogPostForm(this);']"));
         topicButtonElement.click();
 
@@ -73,8 +40,22 @@ public class User_Story_1_Test_Suit {
 
     }
 
+
+
+
+
+
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
     }
+
+
+
+
+
+
+
+
+
 }
