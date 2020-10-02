@@ -59,7 +59,7 @@ public class AC_8   {
         String actuallyResult =  driver.findElement(By.xpath("//div[@id='log_internal_container']")).getText();
         Assert.assertTrue(actuallyResult.contains(expectResult));
 
-        // Second way
+        // Second way ///////
         //driver.findElement(By.linkText("Tasks")).click();
         //String actuallyResult2 = driver.findElement(By.xpath("//table[@class='main-grid-table']")).getText();
         //Assert.assertTrue(actuallyResult2.contains(expectResult));
