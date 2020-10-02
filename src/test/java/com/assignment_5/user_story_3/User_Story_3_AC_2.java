@@ -1,6 +1,7 @@
 package com.assignment_5.user_story_3;
 
 import com.utilities.WebDriverFactory;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,8 @@ public class User_Story_3_AC_2 {
         logInButtonElement.click();
         WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
         messageButtonElement.click();
+
+
     }
 
     @Test //User Story#3 AC#2  User should be able to attach links by clicking on the link icon.
@@ -80,6 +83,22 @@ public class User_Story_3_AC_2 {
 
         Assert.assertEquals(expectedTitle,actualTitle,"Actual title doesn't match the expected. Test FAILED!!!");
 
+        // NOT PART OF THE TEST, JUST DELETING THE POST THAT HAS BEEN POSTED
+
+        for (String eachHandle : windowHandles) {
+            if (driver.switchTo().window(eachHandle).getTitle().equals("(3) Portal")){
+                driver.switchTo().window(eachHandle);
+                break;
+            }
+        }
+
+        WebElement moreDropdownMenu = driver.findElement(By.xpath("//a[contains(@id,'feed-post-menuanchor')]"));
+        moreDropdownMenu.click();
+        WebElement deleteButtonFromMoreDropdown = driver.findElement(By.xpath("//div[@class='menu-popup-items']//span[5]"));
+        deleteButtonFromMoreDropdown.click();
+
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
 
     }
 
