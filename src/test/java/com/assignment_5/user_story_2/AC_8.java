@@ -1,7 +1,6 @@
 package com.assignment_5.user_story_2;
 
-import com.utilities.WebDriverFactory;
-import net.bytebuddy.asm.Advice;
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -31,6 +31,7 @@ public class AC_8   {
 
     @Test
     public void Ac_8 () throws InterruptedException {
+         //TODO: AC#8 assign the tasks in different categories: Created By, Participants and Observer
          Thread.sleep( 1000);
          driver.findElement(By.linkText("Tasks")).click();
          driver.findElement(By.xpath("//a[@class='ui-btn-main']")).click();
@@ -40,8 +41,10 @@ public class AC_8   {
          driver.switchTo().frame(e);
          driver.findElement(By.xpath("//input[@data-bx-id='task-edit-title']")).sendKeys("Tasks for Employees");
 
-         Thread.sleep( 1000);
+         driver.findElement(By.xpath("//span[@data-target='originator']")).click();
+
          driver.findElement(By.xpath("//span[@data-target='accomplice']")).click();
+         Thread.sleep( 1000);
          driver.findElement(By.xpath("//*[@id='bx-component-scope-bitrix_tasks_task_default_1-accomplice']/span[2]/a[2]")).click();
          List <WebElement> Participants =  driver.findElements(By.xpath("//div[@class='bx-finder-box-item-t7-name']"));
          for (WebElement each : Participants) {
@@ -60,7 +63,7 @@ public class AC_8   {
 
          driver.findElement(By.xpath("//button[@class='ui-btn ui-btn-success']")).click();
 
-         // First Varification
+         //TODO: First Varification
          driver.switchTo().defaultContent();
          Thread.sleep( 2000);
          String expectResult = "Tasks for Employees";
@@ -71,7 +74,7 @@ public class AC_8   {
             }
          }
 
-         // Second Varification
+         //TODO: Second Varification
          String expected = "Task has been created";
          String actual = driver.findElement(By.xpath("//div[@class='ui-notification-balloon-message']")).getText();
          Assert.assertEquals(actual,expected);

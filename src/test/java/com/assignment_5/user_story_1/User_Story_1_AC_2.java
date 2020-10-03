@@ -18,7 +18,7 @@ public class User_Story_1_AC_2 {
 
     @BeforeMethod
     public void set_Up(){
-        driver = WebDriverFactory.getdriver("chrome");
+        driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://login2.nextbasecrm.com/");
 
     }
