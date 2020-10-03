@@ -1,6 +1,7 @@
 package com.assignment_5.user_story_2;
 
 import com.utilities.WebDriverFactory;
+import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -29,45 +30,57 @@ public class AC_8   {
     }
 
     @Test
-    public void tasks () throws InterruptedException {
-         Thread.sleep( 2000);
-         driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-tasks']")).click();
+    public void Ac_8 () throws InterruptedException {
+         Thread.sleep( 1000);
+         driver.findElement(By.linkText("Tasks")).click();
+         driver.findElement(By.xpath("//a[@class='ui-btn-main']")).click();
+         Thread.sleep( 1000);
 
-         WebElement name = driver.findElement(By.xpath("//input[@name='ACTION[0][ARGUMENTS][data][TITLE]']"));
-         name.sendKeys("Tasks for Employees");
+         WebElement e = driver.findElement(By.xpath("//iframe[contains(@class,'side-panel-iframe')]"));
+         driver.switchTo().frame(e);
+         driver.findElement(By.xpath("//input[@data-bx-id='task-edit-title']")).sendKeys("Tasks for Employees");
 
+         Thread.sleep( 1000);
          driver.findElement(By.xpath("//span[@data-target='accomplice']")).click();
-         driver.findElement(By.xpath("//*[@id='bx-component-scope-lifefeed_task_form-accomplice']/span[2]/a[2]")).click();
+         driver.findElement(By.xpath("//*[@id='bx-component-scope-bitrix_tasks_task_default_1-accomplice']/span[2]/a[2]")).click();
          List <WebElement> Participants =  driver.findElements(By.xpath("//div[@class='bx-finder-box-item-t7-name']"));
          for (WebElement each : Participants) {
             each.click();
          }
-        driver.findElement(By.xpath("//*[@id='BXSocNetLogDestination']/span")).click();
+         driver.findElement(By.xpath("//*[@id='BXSocNetLogDestination']/span")).click();
 
-        driver.findElement(By.xpath("//span[@data-target='auditor']")).click();
-        driver.findElement(By.xpath("//*[@id='bx-component-scope-lifefeed_task_form-auditor']/span[2]/a[2]")).click();
-        List <WebElement> Observers =  driver.findElements(By.xpath("//div[@class='bx-finder-box-item-t7-name']"));
-        for (WebElement each : Observers) {
+         driver.findElement(By.xpath("//span[@data-target='auditor']")).click();
+         Thread.sleep( 1000);
+         driver.findElement(By.xpath("//*[@id='bx-component-scope-bitrix_tasks_task_default_1-auditor']/span[2]/a[2]")).click();
+         List <WebElement> Observers =  driver.findElements(By.xpath("//div[@class='bx-finder-box-item-t7-name']"));
+         for (WebElement each : Observers){
             each.click();
-        }
-        driver.findElement(By.xpath("//*[@id='BXSocNetLogDestination']/span")).click();
+         }
+         driver.findElement(By.xpath("//*[@id='BXSocNetLogDestination']/span")).click();
 
-        driver.findElement(By.xpath("//button[@id='blog-submit-button-save']")).click();
-        Thread.sleep( 2000);
-        String expectResult = "Tasks for Employees";
+         // ADD Button
+         driver.findElement(By.xpath("//button[@class='ui-btn ui-btn-success']")).click();
 
-        String actuallyResult =  driver.findElement(By.xpath("//div[@id='log_internal_container']")).getText();
-        Assert.assertTrue(actuallyResult.contains(expectResult));
+         // First Varification
+         driver.switchTo().defaultContent();
+         Thread.sleep( 2000);
+         String expectResult = "Tasks for Employees";
+         List<WebElement> tableNames = driver.findElements(By.xpath("//tbody//tr//td[3]"));
+         for (WebElement each : tableNames){
+            if (each.getText().equals(expectResult)){
+                Assert.assertEquals(each.getText(),expectResult);
+            }
+         }
 
-        // Second way ///////
-        //driver.findElement(By.linkText("Tasks")).click();
-        //String actuallyResult2 = driver.findElement(By.xpath("//table[@class='main-grid-table']")).getText();
-        //Assert.assertTrue(actuallyResult2.contains(expectResult));
-        }
+         // Second Varification
+         String expected = "Task has been created";
+         String actual = driver.findElement(By.xpath("//div[@class='ui-notification-balloon-message']")).getText();
+         Assert.assertEquals(actual,expected);
+         }
 
     @AfterMethod
     public void afterMethod(){
-       driver.close();
+      //driver.close();
     }
 
 }
