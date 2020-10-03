@@ -17,11 +17,12 @@ public class User_Story_2_AC_4 {
 
     @BeforeMethod
     public void setUpDriver() {
-        driver = WebDriverFactory.getdriver("Chrome");
+        driver = WebDriverFactory.getDriver("Chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
     }
+
     @Test
     public void user_story_2_ac_4() throws InterruptedException {
         driver.get("https://login2.nextbasecrm.com/");
@@ -51,6 +52,7 @@ public class User_Story_2_AC_4 {
         //iframe[@class='bx-editor-iframe']
 
     }
+
     @AfterMethod
     public void closewindow(){
         driver.close();

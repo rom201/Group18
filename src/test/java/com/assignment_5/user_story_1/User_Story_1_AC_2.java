@@ -1,6 +1,5 @@
 package com.assignment_5.user_story_1;
 
-
 import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,12 +12,11 @@ import org.testng.annotations.Test;
 
 //2. User should be able to add users from selecting contact from Email user.
 public class User_Story_1_AC_2 {
-
     WebDriver driver;
 
     @BeforeMethod
     public void set_Up(){
-        driver = WebDriverFactory.getdriver("chrome");
+        driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://login2.nextbasecrm.com/");
 
     }

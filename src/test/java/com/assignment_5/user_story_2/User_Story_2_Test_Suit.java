@@ -1,6 +1,6 @@
 package com.assignment_5.user_story_2;
 
-import com.utilities.WebDriverFactory;
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +21,6 @@ public class User_Story_2_Test_Suit {
         driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://login2.nextbasecrm.com/");
     }
-
 
     @Test//US2_AC#1
     public void us_2_AC_1_High_Priority() throws InterruptedException{

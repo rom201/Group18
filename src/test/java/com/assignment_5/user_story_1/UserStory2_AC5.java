@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class UserStory2_AC5 {
@@ -16,11 +15,12 @@ public class UserStory2_AC5 {
 
     @BeforeMethod
     public void setUpDriver() {
-        driver = WebDriverFactory.getdriver("Chrome");
+        driver = WebDriverFactory.getDriver("Chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
     }
+
     @Test
     public void user_story_2_ac_5() throws InterruptedException {
         driver.get("https://login2.nextbasecrm.com/");

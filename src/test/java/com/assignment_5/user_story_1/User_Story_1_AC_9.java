@@ -1,6 +1,7 @@
 package com.assignment_5.user_story_1;
 
-import com.utilities.WebDriverFactory;
+
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,6 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_AC_9 {
-
         WebDriver driver;
 
         @BeforeMethod
@@ -54,6 +54,7 @@ public class User_Story_1_AC_9 {
         public void close() throws InterruptedException {
             Thread.sleep(3000);
             driver.close();
-        }}
+        }
+}
 
 
