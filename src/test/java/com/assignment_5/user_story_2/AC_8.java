@@ -58,7 +58,6 @@ public class AC_8   {
          }
          driver.findElement(By.xpath("//*[@id='BXSocNetLogDestination']/span")).click();
 
-         // ADD Button
          driver.findElement(By.xpath("//button[@class='ui-btn ui-btn-success']")).click();
 
          // First Varification
