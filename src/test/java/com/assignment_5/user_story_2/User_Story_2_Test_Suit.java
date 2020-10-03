@@ -22,7 +22,6 @@ public class User_Story_2_Test_Suit {
         driver.get("https://login2.nextbasecrm.com/");
     }
 
-
     @Test//US2_AC#1
     public void us_2_AC_1_High_Priority() throws InterruptedException{
         // before method
