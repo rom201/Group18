@@ -1,6 +1,7 @@
 package com.assignment_5.user_story_1;
 
-import com.utilities.WebDriverFactory;
+
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,7 @@ public class User_Story_1_AC_2 {
 
     @BeforeMethod
     public void set_Up(){
-        driver = WebDriverFactory.getDriver("chrome");
+        driver = WebDriverFactory.getdriver("chrome");
         driver.get("https://login2.nextbasecrm.com/");
 
     }
