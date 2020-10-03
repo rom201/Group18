@@ -1,6 +1,6 @@
 package com.assignment_5.user_story_2;
 
-import com.utilities.WebDriverFactory;
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

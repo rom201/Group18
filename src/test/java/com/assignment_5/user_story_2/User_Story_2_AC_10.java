@@ -1,6 +1,6 @@
 package com.assignment_5.user_story_2;
 
-import com.utilities.WebDriverFactory;
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -10,11 +10,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_2_AC_10 {
-
     WebDriver driver;
 
     @BeforeMethod
@@ -36,7 +34,6 @@ public class User_Story_2_AC_10 {
         System.out.println("isDisplay = " + isDisplay.isDisplayed());
         Assert.assertTrue(isDisplay.isDisplayed(),"its not visible");
     }
-
 
     @AfterMethod
     public void afterMethod(){
