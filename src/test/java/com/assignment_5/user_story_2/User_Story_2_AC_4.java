@@ -12,7 +12,8 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class User_Story_2_AC_4 {
+public class
+        User_Story_2_AC_4 {
     WebDriver driver;
 
     @BeforeMethod
