@@ -22,10 +22,6 @@ public class User_Story_3_Test_Suit {
         driver.get("https://login2.nextbasecrm.com/");
     }
 
-    @Test
-    public void User_Story_3_AC_1(){
-
-    }
 
     @Test
     public void User_Story_3_AC_2(){
@@ -145,5 +141,6 @@ public class User_Story_3_Test_Suit {
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
+        driver.close();
     }
 }

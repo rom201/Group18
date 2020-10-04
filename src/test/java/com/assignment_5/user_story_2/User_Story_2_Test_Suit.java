@@ -20,7 +20,7 @@ public class User_Story_2_Test_Suit {
     }
 
     @Test//US2_AC#1
-    public void us_2_AC_1_High_Priority() throws InterruptedException{
+    public void User_Story_2_AC_1_High_Priority() throws InterruptedException{
         // before method
         String helpDeskUserName = "Helpdesk18@cybertekschool.com";
         String pass = "UserUser";
@@ -79,8 +79,34 @@ public class User_Story_2_Test_Suit {
 
     }
 
+    @Test//US1_AC#5:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
+    public void User_Story_2_AC_5() throws InterruptedException {
+
+        //beforeMethod
+        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
+        //US#2 Only:
+        driver.findElement(By.xpath("//span[.='Task']")).click();
+        Thread.sleep(3000);
+
+        //AC#5 Add mention icon and select contacts from the lists provided in dropdown
+        driver.findElement(By.xpath("//div[@id='feed-add-post-content-tasks']//span[@title='Add mention']")).click();
+        Thread.sleep(2000);
+        WebElement mention = driver.findElement(By.xpath("//span[@class='bx-finder-groupbox-content']//a[8]"));//a[i] -->can be more
+        String expectResult = mention.getText();
+        System.out.println("expectResult = " + expectResult);
+
+        mention.click();
+        List<WebElement> ifram = driver.findElements(By.xpath("//iframe[@class='bx-editor-iframe']"));
+        driver.switchTo().frame(1);
+        String actuallyResult = driver.findElement(By.xpath("//span[@class='bxhtmled-metion']")).getText();
+        driver.switchTo().parentFrame();
+
+        Assert.assertEquals(expectResult,actuallyResult);
+    }
+
     @Test//US2_AC#7_1
-    public void us2_AC_7_1_Checklist_Add_CheckMark() throws InterruptedException{
+    public void User_Story_2_AC_7_1_Checklist_Add_CheckMark() throws InterruptedException{
 
         // before method
         String helpDeskUserName = "Helpdesk18@cybertekschool.com";
@@ -136,7 +162,7 @@ public class User_Story_2_Test_Suit {
     }
 
     @Test// US2_AC#7_2
-    public void us2_AC_7_2_Checklist_Add_separator() throws InterruptedException {
+    public void User_Story_2_AC_7_2_Checklist_Add_separator() throws InterruptedException {
 
 
         // before method
@@ -173,34 +199,8 @@ public class User_Story_2_Test_Suit {
 
     }
 
-    @Test//US1_AC#5:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
-    public void add_Mention() throws InterruptedException {
-
-        //beforeMethod
-        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
-        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
-        //US#2 Only:
-        driver.findElement(By.xpath("//span[.='Task']")).click();
-        Thread.sleep(3000);
-
-        //AC#5 Add mention icon and select contacts from the lists provided in dropdown
-        driver.findElement(By.xpath("//div[@id='feed-add-post-content-tasks']//span[@title='Add mention']")).click();
-        Thread.sleep(2000);
-        WebElement mention = driver.findElement(By.xpath("//span[@class='bx-finder-groupbox-content']//a[8]"));//a[i] -->can be more
-        String expectResult = mention.getText();
-        System.out.println("expectResult = " + expectResult);
-
-        mention.click();
-        List<WebElement> ifram = driver.findElements(By.xpath("//iframe[@class='bx-editor-iframe']"));
-        driver.switchTo().frame(1);
-        String actuallyResult = driver.findElement(By.xpath("//span[@class='bxhtmled-metion']")).getText();
-        driver.switchTo().parentFrame();
-
-        Assert.assertEquals(expectResult,actuallyResult);
-    }
-
     @Test//US1_AC#10:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
-    public void is_More_Visible() throws InterruptedException {
+    public void User_Story_2_AC_10() throws InterruptedException {
         //beforeMethod
         driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);

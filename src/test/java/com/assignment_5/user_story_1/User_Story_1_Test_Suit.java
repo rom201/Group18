@@ -74,8 +74,8 @@ public class User_Story_1_Test_Suit {
     public void User_Story_1_AC_7(){
         //PRE-CONDITION
 
-        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
-        logInButtonElement.click();
+        //WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
+        //logInButtonElement.click();
         WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
         messageButtonElement.click();
 
@@ -91,8 +91,8 @@ public class User_Story_1_Test_Suit {
     public void User_Story_1_AC_8(){
         //PRE-CONDITION
 
-        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
-        logInButtonElement.click();
+        // WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
+        //logInButtonElement.click();
         WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
         messageButtonElement.click();
 
@@ -108,5 +108,6 @@ public class User_Story_1_Test_Suit {
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
+        driver.close();
     }
 }
