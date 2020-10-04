@@ -1,10 +1,7 @@
 package com.assignment_5.user_story_2;
 
 import com.assignment_5.Utilities.WebDriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -59,7 +56,26 @@ public class User_Story_2_Test_Suit {
     }
 
     @Test
-    public void User_Story_2_AC_2(){
+    public void User_Story_2_AC_3() throws InterruptedException {
+        //BeforeMEthod
+        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
+        driver.findElement(By.xpath("//span[.='Task']")).click();
+        Thread.sleep(2000);
+
+        //Click "Upload file" icon
+        driver.findElement(By.xpath("//span[@id='bx-b-uploadfile-task-form-lifefeed_task_form']")).click();
+        Thread.sleep(3000);
+
+        String filePath="C:\\Users\\a9329\\Desktop\\myfile.txt";
+        try {
+            driver.findElement(By.xpath("//input[@name='bxu_files[]']")).sendKeys(filePath);
+        }catch (InvalidArgumentException e){
+            System.out.println("plz check your file path make suer you have file in that path");
+        }
+
+        WebElement actlyResul = driver.findElement(By.xpath("//span[.='myfile.txt']"));
+        Assert.assertTrue(actlyResul.isDisplayed());
 
     }
 
@@ -205,6 +221,6 @@ public class User_Story_2_Test_Suit {
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
-        driver.close();
+        //driver.close();
     }
 }
