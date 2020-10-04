@@ -141,6 +141,23 @@ public class User_Story_1_Test_Suit {
         Assert.assertTrue(topicTextBoxElement.isDisplayed(),"Topic text box is not displayed. Test FAILED!!!");
 
     }
+    @Test
+    public void User_Story_1_AC_9(){
+    WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
+            recordButton.click();
+
+    WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
+            deviceAccess.click();
+
+    WebElement resultText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+            Assert.assertTrue(resultText.isDisplayed(),"Result text is not dispalyed.Verification FAILED!!");
+
+    WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+
+            Assert.assertTrue(errorText.isDisplayed(),"Error text is not displayed.Verification Failed!!!");
+
+            errorText.click();
+}
 
     @AfterMethod
     public void afterMethod(){
