@@ -22,7 +22,6 @@ public class User_Story_3_Test_Suit {
         driver.get("https://login2.nextbasecrm.com/");
     }
 
-
     @Test
     public void User_Story_3_AC_2(){
         //PRE-CONDITION

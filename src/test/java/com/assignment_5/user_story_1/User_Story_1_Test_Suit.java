@@ -70,8 +70,6 @@ public class User_Story_1_Test_Suit {
 
     }
 
-
-
     @Test
     public void  User_Story_1_AC_6(){
         WebElement userName= driver.findElement(By.xpath("//input[@type='text']"));
@@ -108,6 +106,7 @@ public class User_Story_1_Test_Suit {
 
     }
 
+    @Test
     public void User_Story_1_AC_7(){
         //PRE-CONDITION
 
@@ -141,6 +140,7 @@ public class User_Story_1_Test_Suit {
         Assert.assertTrue(topicTextBoxElement.isDisplayed(),"Topic text box is not displayed. Test FAILED!!!");
 
     }
+
     @Test
     public void User_Story_1_AC_9(){
     WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
