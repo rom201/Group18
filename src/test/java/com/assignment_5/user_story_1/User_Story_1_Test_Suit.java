@@ -70,7 +70,44 @@ public class User_Story_1_Test_Suit {
 
     }
 
+
+
     @Test
+    public void  User_Story_1_AC_6(){
+        WebElement userName= driver.findElement(By.xpath("//input[@type='text']"));
+        userName.sendKeys("helpdesk18@cybertekschool.com");
+        WebElement passWord=driver.findElement(By.xpath("//input[@type='password']"));
+        passWord.sendKeys("UserUser");
+        WebElement logIn= driver.findElement(By.xpath("//input[@type='submit']"));
+        logIn.click();
+
+        WebElement messageBotton= driver.findElement(By.xpath("//span[.='Message']"));
+        messageBotton.click();
+
+        WebElement icon= driver.findElement(By.id("bx-b-mention-blogPostForm"));
+        icon.click();
+
+        WebElement user1=driver.findElement(By.xpath("//div[.='hr77@cybertekschool.com']"));
+        user1.click();
+
+        WebElement icon2= driver.findElement(By.id("bx-b-mention-blogPostForm"));
+        icon2.click();
+
+        WebElement user2=driver.findElement(By.xpath("//div[.='helpdesk27@cybertekschool.com']"));
+        user2.click();
+
+
+
+
+
+
+
+
+
+
+
+    }
+
     public void User_Story_1_AC_7(){
         //PRE-CONDITION
 
@@ -104,6 +141,23 @@ public class User_Story_1_Test_Suit {
         Assert.assertTrue(topicTextBoxElement.isDisplayed(),"Topic text box is not displayed. Test FAILED!!!");
 
     }
+    @Test
+    public void User_Story_1_AC_9(){
+    WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
+            recordButton.click();
+
+    WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
+            deviceAccess.click();
+
+    WebElement resultText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+            Assert.assertTrue(resultText.isDisplayed(),"Result text is not dispalyed.Verification FAILED!!");
+
+    WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+
+            Assert.assertTrue(errorText.isDisplayed(),"Error text is not displayed.Verification Failed!!!");
+
+            errorText.click();
+}
 
     @AfterMethod
     public void afterMethod(){

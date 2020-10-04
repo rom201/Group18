@@ -78,6 +78,27 @@ public class User_Story_2_Test_Suit {
         Assert.assertTrue(actlyResul.isDisplayed());
 
     }
+    @Test
+    public void User_Story_2_AC_4() throws InterruptedException {
+        WebElement task = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-tasks']"));
+        Thread.sleep(1000);
+        task.click();
+        Thread.sleep(1000);
+        WebElement Quotetext = driver.findElement(By.xpath("//span[@id='bx-b-quote-task-form-lifefeed_task_form']"));
+        Thread.sleep(3000);
+        Quotetext.click();
+
+        //   WebElement iframe = driver.findElement(By.xpath("//div[@id='bx-html-editor-iframe-cnt-lifefeed_task_form']"));
+        //   driver.switchTo().frame(iframe);
+        //   driver.switchTo().frame(2);
+        WebElement blockquote =  driver.findElement(By.xpath("//blockquote[@class='bxhtmled-quote']"));
+        //   blockquote.sendKeys("If everyone is moving forward together, then success takes care of itself.");
+        //    blockquote.submit();
+        //blockquote[@class='bxhtmled-quote']
+
+        Assert.assertTrue(blockquote.isDisplayed(),"Text is not dispalyed verification failed!!!");
+
+    }
 
     @Test//US1_AC#5:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
     public void User_Story_2_AC_5() throws InterruptedException {
