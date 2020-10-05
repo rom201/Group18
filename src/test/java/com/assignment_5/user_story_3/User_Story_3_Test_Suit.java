@@ -23,11 +23,6 @@ public class User_Story_3_Test_Suit {
     }
 
     @Test
-    public void User_Story_3_AC_1(){
-
-    }
-
-    @Test
     public void User_Story_3_AC_2(){
         //PRE-CONDITION
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -145,5 +140,6 @@ public class User_Story_3_Test_Suit {
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
+        driver.close();
     }
 }
