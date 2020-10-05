@@ -158,11 +158,13 @@ try {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
-
+/*
     @AfterMethod
     public void tearDown() throws InterruptedException {
         Thread.sleep(3000);
         driver.close();
     }
 
+
+ */
 }

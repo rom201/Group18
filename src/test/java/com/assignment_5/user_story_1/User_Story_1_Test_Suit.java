@@ -21,6 +21,24 @@ public class User_Story_1_Test_Suit {
         driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
     }
 
+    @Test//1.	Users should be able to click on the upload files icon to upload files and images from local disks.
+    public void US_1_AC_1() throws InterruptedException {
+
+        WebElement Message = driver.findElement(By.xpath("//span[.='Message']"));
+        Message.click();
+        Thread.sleep(1000);
+
+        WebElement uploadFile = driver.findElement(By.id("bx-b-uploadfile-blogPostForm"));
+        uploadFile.click();
+
+        WebElement uploadFileAndImages = driver.findElement(By.xpath("//div[@class='diskuf-uploader']"));
+        //uploadFileAndImages.sendKeys("C:Users\\Resho\\Desktop\\Automation Task Photo\\Task5.4.jpg");
+        uploadFileAndImages.click();
+        Thread.sleep(3000);
+
+
+    }
+
     @Test
     public void User_Story_1_AC_2() throws InterruptedException {
         //BeforeMethod
@@ -196,7 +214,9 @@ public class User_Story_1_Test_Suit {
 
     @AfterMethod
     public void afterMethod(){
-        driver.manage().window().maximize();
+
+
         driver.close();
+
     }
 }
