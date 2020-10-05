@@ -1,10 +1,7 @@
 package com.assignment_5.user_story_2;
 
-import com.utilities.WebDriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.assignment_5.Utilities.WebDriverFactory;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,9 +19,8 @@ public class User_Story_2_Test_Suit {
         driver.get("https://login2.nextbasecrm.com/");
     }
 
-
     @Test//US2_AC#1
-    public void us_2_AC_1_High_Priority() throws InterruptedException{
+    public void User_Story_2_AC_1_High_Priority() throws InterruptedException{
         // before method
         String helpDeskUserName = "Helpdesk18@cybertekschool.com";
         String pass = "UserUser";
@@ -60,12 +56,79 @@ public class User_Story_2_Test_Suit {
     }
 
     @Test
-    public void User_Story_2_AC_2(){
+    public void User_Story_2_AC_3() throws InterruptedException {
+        //BeforeMEthod
+        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
+        driver.findElement(By.xpath("//span[.='Task']")).click();
+        Thread.sleep(2000);
+
+        //Click "Upload file" icon
+        driver.findElement(By.xpath("//span[@id='bx-b-uploadfile-task-form-lifefeed_task_form']")).click();
+        Thread.sleep(3000);
+
+        String filePath="C:\\Users\\a9329\\Desktop\\myfile.txt";
+        try {
+            driver.findElement(By.xpath("//input[@name='bxu_files[]']")).sendKeys(filePath);
+        }catch (InvalidArgumentException e){
+            System.out.println("plz check your file path make suer you have file in that path");
+        }
+
+        WebElement actlyResul = driver.findElement(By.xpath("//span[.='myfile.txt']"));
+        Assert.assertTrue(actlyResul.isDisplayed());
 
     }
 
+    @Test
+    public void User_Story_2_AC_4() throws InterruptedException {
+        WebElement task = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-tasks']"));
+        Thread.sleep(1000);
+        task.click();
+        Thread.sleep(1000);
+        WebElement Quotetext = driver.findElement(By.xpath("//span[@id='bx-b-quote-task-form-lifefeed_task_form']"));
+        Thread.sleep(3000);
+        Quotetext.click();
+
+        //   WebElement iframe = driver.findElement(By.xpath("//div[@id='bx-html-editor-iframe-cnt-lifefeed_task_form']"));
+        //   driver.switchTo().frame(iframe);
+        //   driver.switchTo().frame(2);
+        WebElement blockquote =  driver.findElement(By.xpath("//blockquote[@class='bxhtmled-quote']"));
+        //   blockquote.sendKeys("If everyone is moving forward together, then success takes care of itself.");
+        //    blockquote.submit();
+        //blockquote[@class='bxhtmled-quote']
+
+        Assert.assertTrue(blockquote.isDisplayed(),"Text is not dispalyed verification failed!!!");
+
+    }
+
+    @Test//US1_AC#5:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
+    public void User_Story_2_AC_5() throws InterruptedException {
+
+        //beforeMethod
+        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
+        //US#2 Only:
+        driver.findElement(By.xpath("//span[.='Task']")).click();
+        Thread.sleep(3000);
+
+        //AC#5 Add mention icon and select contacts from the lists provided in dropdown
+        driver.findElement(By.xpath("//div[@id='feed-add-post-content-tasks']//span[@title='Add mention']")).click();
+        Thread.sleep(2000);
+        WebElement mention = driver.findElement(By.xpath("//span[@class='bx-finder-groupbox-content']//a[8]"));//a[i] -->can be more
+        String expectResult = mention.getText();
+        System.out.println("expectResult = " + expectResult);
+
+        mention.click();
+        List<WebElement> ifram = driver.findElements(By.xpath("//iframe[@class='bx-editor-iframe']"));
+        driver.switchTo().frame(1);
+        String actuallyResult = driver.findElement(By.xpath("//span[@class='bxhtmled-metion']")).getText();
+        driver.switchTo().parentFrame();
+
+        Assert.assertEquals(expectResult,actuallyResult);
+    }
+
     @Test//US2_AC#7_1
-    public void us2_AC_7_1_Checklist_Add_CheckMark() throws InterruptedException{
+    public void User_Story_2_AC_7_1_Checklist_Add_CheckMark() throws InterruptedException{
 
         // before method
         String helpDeskUserName = "Helpdesk18@cybertekschool.com";
@@ -121,7 +184,7 @@ public class User_Story_2_Test_Suit {
     }
 
     @Test// US2_AC#7_2
-    public void us2_AC_7_2_Checklist_Add_separator() throws InterruptedException {
+    public void User_Story_2_AC_7_2_Checklist_Add_separator() throws InterruptedException {
 
 
         // before method
@@ -158,34 +221,8 @@ public class User_Story_2_Test_Suit {
 
     }
 
-    @Test//US1_AC#5:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
-    public void add_Mention() throws InterruptedException {
-
-        //beforeMethod
-        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
-        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
-        //US#2 Only:
-        driver.findElement(By.xpath("//span[.='Task']")).click();
-        Thread.sleep(3000);
-
-        //AC#5 Add mention icon and select contacts from the lists provided in dropdown
-        driver.findElement(By.xpath("//div[@id='feed-add-post-content-tasks']//span[@title='Add mention']")).click();
-        Thread.sleep(2000);
-        WebElement mention = driver.findElement(By.xpath("//span[@class='bx-finder-groupbox-content']//a[8]"));//a[i] -->can be more
-        String expectResult = mention.getText();
-        System.out.println("expectResult = " + expectResult);
-
-        mention.click();
-        List<WebElement> ifram = driver.findElements(By.xpath("//iframe[@class='bx-editor-iframe']"));
-        driver.switchTo().frame(1);
-        String actuallyResult = driver.findElement(By.xpath("//span[@class='bxhtmled-metion']")).getText();
-        driver.switchTo().parentFrame();
-
-        Assert.assertEquals(expectResult,actuallyResult);
-    }
-
     @Test//US1_AC#10:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
-    public void is_More_Visible() throws InterruptedException {
+    public void User_Story_2_AC_10() throws InterruptedException {
         //beforeMethod
         driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
@@ -206,6 +243,6 @@ public class User_Story_2_Test_Suit {
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
-        driver.close();
+        //driver.close();
     }
 }

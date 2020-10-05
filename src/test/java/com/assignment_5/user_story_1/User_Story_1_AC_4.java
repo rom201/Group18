@@ -12,11 +12,11 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_AC_4 {
-    WebDriver driver;
+        WebDriver driver;
 
         @BeforeMethod
         public void setUpDriver() {
-            driver = WebDriverFactory.getdriver("Chrome");
+            driver = WebDriverFactory.getDriver("Chrome");
             driver.manage().window().maximize();
             driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
@@ -48,12 +48,11 @@ public class User_Story_1_AC_4 {
             messagesend.click();
         }
 
-
-
         @AfterMethod
         public void closeWindow() {
             //   driver.close();
-        }}
+        }
+}
 
 
 

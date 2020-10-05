@@ -6,7 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
-    public static WebDriver getdriver(String browserType){
+    WebDriver driver;
+    public static WebDriver getDriver(String browserType){
         if(browserType.equalsIgnoreCase("chrome")){
             WebDriverManager.chromedriver().setup();
             return new ChromeDriver();
@@ -14,8 +15,10 @@ public class WebDriverFactory {
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
         }else{
-            System.out.println("Given browser does not exist. Driver = null!");
+            System.out.println("Given browser does not exist. Driver = null");
             return null;
         }
     }
 }
+
+

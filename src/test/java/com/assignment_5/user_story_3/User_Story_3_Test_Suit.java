@@ -1,6 +1,6 @@
 package com.assignment_5.user_story_3;
 
-import com.utilities.WebDriverFactory;
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,11 +20,6 @@ public class User_Story_3_Test_Suit {
     public void set_Up(){
         driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://login2.nextbasecrm.com/");
-    }
-
-    @Test
-    public void User_Story_3_AC_1(){
-
     }
 
     @Test
@@ -145,5 +140,6 @@ public class User_Story_3_Test_Suit {
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
+        driver.close();
     }
 }
