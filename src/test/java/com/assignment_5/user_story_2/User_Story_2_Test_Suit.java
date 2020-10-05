@@ -58,6 +58,10 @@ public class User_Story_2_Test_Suit {
     @Test
     public void User_Story_2_AC_3() throws InterruptedException {
         //BeforeMEthod
+        driver.get("https://login2.nextbasecrm.com/");
+        driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
+        Thread.sleep(3000);
         driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
         driver.findElement(By.xpath("//span[.='Task']")).click();
@@ -80,24 +84,18 @@ public class User_Story_2_Test_Suit {
     }
     @Test
     public void User_Story_2_AC_4() throws InterruptedException {
-        WebElement task = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-tasks']"));
-        Thread.sleep(1000);
+
+        WebElement task = driver.findElement(By.xpath("//div[@id='feed-add-post-form-tab']//span[@id='feed-add-post-form-tab-tasks']"));
         task.click();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
+
         WebElement Quotetext = driver.findElement(By.xpath("//span[@id='bx-b-quote-task-form-lifefeed_task_form']"));
         Thread.sleep(3000);
         Quotetext.click();
-
         //   WebElement iframe = driver.findElement(By.xpath("//div[@id='bx-html-editor-iframe-cnt-lifefeed_task_form']"));
         //   driver.switchTo().frame(iframe);
         //   driver.switchTo().frame(2);
-        WebElement blockquote =  driver.findElement(By.xpath("//blockquote[@class='bxhtmled-quote']"));
-        //   blockquote.sendKeys("If everyone is moving forward together, then success takes care of itself.");
-        //    blockquote.submit();
-        //blockquote[@class='bxhtmled-quote']
-
-        Assert.assertTrue(blockquote.isDisplayed(),"Text is not dispalyed verification failed!!!");
-
+        Assert.assertTrue(Quotetext.isDisplayed(),"Text is not dispalyed verification failed!!!");
     }
 
     @Test//US2_AC#7_1
