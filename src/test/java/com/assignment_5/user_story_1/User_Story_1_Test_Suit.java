@@ -159,6 +159,41 @@ public class User_Story_1_Test_Suit {
             errorText.click();
 }
 
+    @Test
+    public void link_attachment_verification() throws InterruptedException {
+
+
+
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message'] ")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[@title='Link'] ")).click();
+
+
+        String expectedText="Cybertek School";//expected
+        String email2="https://www.cybertekschool.com/";
+
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//input[@id='linkidPostFormLHE_blogPostForm-text'] ")).sendKeys(expectedText);
+        driver.findElement(By.xpath("//input[@id='linkidPostFormLHE_blogPostForm-href'] ")).sendKeys(email2);
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//input[@id='undefined'] ")).click();
+
+        Thread.sleep(3000);
+
+
+
+        driver.switchTo().frame(0);
+        String actuallyResult = driver.findElement(By.xpath("//a[.='"+expectedText+"']")).getText();
+        driver.switchTo().parentFrame();
+
+        Assert.assertEquals(expectedText,actuallyResult);
+
+
+
+    }
+
+
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
