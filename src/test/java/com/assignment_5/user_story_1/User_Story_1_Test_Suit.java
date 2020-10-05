@@ -22,7 +22,7 @@ public class User_Story_1_Test_Suit {
     }
 
     @Test//1.	Users should be able to click on the upload files icon to upload files and images from local disks.
-    public void US_1_AC_1() throws InterruptedException {
+    public void User_Story_1_AC_1() throws InterruptedException {
 
         WebElement Message = driver.findElement(By.xpath("//span[.='Message']"));
         Message.click();
@@ -62,6 +62,40 @@ public class User_Story_1_Test_Suit {
         //Verify test Pass or fail
         WebElement actuallyResults= driver.findElement(By.xpath("//span[@class='feed-add-post-destination-text']"));
         Assert.assertEquals(expectsResult.getText(),actuallyResults.getText());
+    }
+
+    @Test
+    public void User_Story_1_AC_3() throws InterruptedException {
+
+
+
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message'] ")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[@title='Link'] ")).click();
+
+
+        String expectedText="Cybertek School";//expected
+        String email2="https://www.cybertekschool.com/";
+
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//input[@id='linkidPostFormLHE_blogPostForm-text'] ")).sendKeys(expectedText);
+        driver.findElement(By.xpath("//input[@id='linkidPostFormLHE_blogPostForm-href'] ")).sendKeys(email2);
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//input[@id='undefined'] ")).click();
+
+        Thread.sleep(3000);
+
+
+
+        driver.switchTo().frame(0);
+        String actuallyResult = driver.findElement(By.xpath("//a[.='"+expectedText+"']")).getText();
+        driver.switchTo().parentFrame();
+
+        Assert.assertEquals(expectedText,actuallyResult);
+
+
+
     }
 
     @Test
@@ -176,41 +210,6 @@ public class User_Story_1_Test_Suit {
 
             errorText.click();
 }
-
-    @Test
-    public void link_attachment_verification() throws InterruptedException {
-
-
-
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message'] ")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//span[@title='Link'] ")).click();
-
-
-        String expectedText="Cybertek School";//expected
-        String email2="https://www.cybertekschool.com/";
-
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//input[@id='linkidPostFormLHE_blogPostForm-text'] ")).sendKeys(expectedText);
-        driver.findElement(By.xpath("//input[@id='linkidPostFormLHE_blogPostForm-href'] ")).sendKeys(email2);
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//input[@id='undefined'] ")).click();
-
-        Thread.sleep(3000);
-
-
-
-        driver.switchTo().frame(0);
-        String actuallyResult = driver.findElement(By.xpath("//a[.='"+expectedText+"']")).getText();
-        driver.switchTo().parentFrame();
-
-        Assert.assertEquals(expectedText,actuallyResult);
-
-
-
-    }
-
 
     @AfterMethod
     public void afterMethod(){

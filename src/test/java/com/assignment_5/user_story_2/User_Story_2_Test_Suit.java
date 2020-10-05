@@ -58,6 +58,30 @@ public class User_Story_2_Test_Suit {
 
     }
 
+    @Test//link_attachment_verification
+    public void User_Story_2_AC_2() throws InterruptedException {
+
+        // driver.get("https://login2.nextbasecrm.com/");
+
+        String email = "helpdesk18@cybertekschool.com";
+        String password = "UserUser";
+
+        driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys(email);
+        driver.findElement(By.xpath("//input[@name='USER_PASSWORD']")).sendKeys(password);
+        driver.findElement(By.xpath("//input[@class='login-btn'] ")).click();
+
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-tasks']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//span[@id='lhe_button_editor_task-form-lifefeed_task_form']")).click();
+
+        WebElement actualResult= driver.findElement(By.xpath("//div[@id='bx-html-editor-tlbr-idPostFormLHE_blogPostForm']"));
+        Assert.assertTrue(!actualResult.isDisplayed());
+
+        driver.manage().window().maximize();
+
+    }
+
     @Test
     public void User_Story_2_AC_3() throws InterruptedException {
         //BeforeMEthod
@@ -224,9 +248,8 @@ public class User_Story_2_Test_Suit {
 
     }
 
-
     @Test
-    public void TimePlanning() throws InterruptedException {
+    public void User_Story_2_AC_9() throws InterruptedException {
         driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.xpath("//input[@name='USER_PASSWORD']")).sendKeys("UserUser");
         driver.findElement(By.xpath("//input[@value='Log In']")).click();
@@ -359,12 +382,6 @@ try {
         alert.accept();
     }
 
-    @AfterMethod
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.close();
-    }
-
     @Test//US1_AC#10:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
     public void User_Story_2_AC_10() throws InterruptedException {
         //beforeMethod
@@ -383,34 +400,9 @@ try {
         Assert.assertTrue(isDisplay.isDisplayed(),"its not visible");
     }
 
-
-    @Test
-    public void link_attachment_verification() throws InterruptedException {
-
-        // driver.get("https://login2.nextbasecrm.com/");
-
-        String email = "helpdesk18@cybertekschool.com";
-        String password = "UserUser";
-
-        driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys(email);
-        driver.findElement(By.xpath("//input[@name='USER_PASSWORD']")).sendKeys(password);
-        driver.findElement(By.xpath("//input[@class='login-btn'] ")).click();
-
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-tasks']")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//span[@id='lhe_button_editor_task-form-lifefeed_task_form']")).click();
-
-        WebElement actualResult= driver.findElement(By.xpath("//div[@id='bx-html-editor-tlbr-idPostFormLHE_blogPostForm']"));
-        Assert.assertTrue(!actualResult.isDisplayed());
-
-        driver.manage().window().maximize();
-
-    }
-
     @AfterMethod
-    public void afterMethod(){
-        driver.manage().window().maximize();
-        //driver.close();
+    public void afterMethod() throws InterruptedException {
+        Thread.sleep(3000);
+        driver.close();
     }
 }

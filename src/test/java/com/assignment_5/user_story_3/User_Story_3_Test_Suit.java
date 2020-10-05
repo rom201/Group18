@@ -103,7 +103,7 @@ public class User_Story_3_Test_Suit {
     }
 
     @Test
-    public void us3_AC4_quote() throws InterruptedException {
+    public void User_Story_3_AC_4_quote() throws InterruptedException {
 
         // before method
         String helpDeskUserName = "Helpdesk18@cybertekschool.com";
@@ -138,9 +138,8 @@ public class User_Story_3_Test_Suit {
         Assert.assertTrue(actualResult);
     }
 
-
     @Test
-    public void MoreButton_US3_AC10() throws InterruptedException {
+    public void User_Story_3_AC_10() throws InterruptedException {
         driver.get("https://login2.nextbasecrm.com/?login=yes");
         driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.xpath("//input[@name='USER_PASSWORD']")).sendKeys("UserUser");
