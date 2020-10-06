@@ -123,38 +123,22 @@ public class User_Story_1_Test_Suit {
     }
 
     @Test
-    public void  User_Story_1_AC_6(){
-        WebElement userName= driver.findElement(By.xpath("//input[@type='text']"));
-        userName.sendKeys("helpdesk18@cybertekschool.com");
-        WebElement passWord=driver.findElement(By.xpath("//input[@type='password']"));
-        passWord.sendKeys("UserUser");
-        WebElement logIn= driver.findElement(By.xpath("//input[@type='submit']"));
-        logIn.click();
-
+    public void  User_Story_1_AC_6() throws InterruptedException {
+        Thread.sleep(3000);
         WebElement messageBotton= driver.findElement(By.xpath("//span[.='Message']"));
         messageBotton.click();
-
+        Thread.sleep(1000);
         WebElement icon= driver.findElement(By.id("bx-b-mention-blogPostForm"));
         icon.click();
-
+        Thread.sleep(1000);
         WebElement user1=driver.findElement(By.xpath("//div[.='hr77@cybertekschool.com']"));
         user1.click();
-
+        Thread.sleep(1000);
         WebElement icon2= driver.findElement(By.id("bx-b-mention-blogPostForm"));
         icon2.click();
-
+        Thread.sleep(1000);
         WebElement user2=driver.findElement(By.xpath("//div[.='helpdesk27@cybertekschool.com']"));
         user2.click();
-
-
-
-
-
-
-
-
-
-
 
     }
 
