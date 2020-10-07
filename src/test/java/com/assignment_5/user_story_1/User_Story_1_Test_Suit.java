@@ -22,6 +22,10 @@ public class User_Story_1_Test_Suit {
         driver.get("https://login2.nextbasecrm.com/");
         driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
+
+
+
+
     }
 
     @Test
@@ -107,9 +111,33 @@ public class User_Story_1_Test_Suit {
         messagesend.click();
 
     }
+    @Test
+    public void User_Story_1_AC_9() throws InterruptedException {
+
+        WebElement message = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message']"));
+        message.click();
+        Thread.sleep(3000);
+            WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
+            recordButton.click();
+
+            WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
+           Thread.sleep(3000);
+            deviceAccess.click();
+
+            WebElement resultText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+            Assert.assertTrue(resultText.isDisplayed(),"Result text is not dispalyed.Verification FAILED!!");
+           Thread.sleep(3000);
+            WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+            Thread.sleep(3000);
+            Assert.assertTrue(errorText.isDisplayed(),"Error text is not displayed.Verification Failed!!!");
+
+            errorText.click();
+        }
+
 
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
+        driver.close();
     }
 }

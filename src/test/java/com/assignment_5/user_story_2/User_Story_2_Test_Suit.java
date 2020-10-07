@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_2_Test_Suit {
+    /*
+}
     WebDriver driver;
 
     @BeforeMethod
@@ -83,8 +85,18 @@ public class User_Story_2_Test_Suit {
     }
 
     @Test
+<<<<<<< HEAD
+<<<<<<< HEAD
     public void User_Story_2_AC_3() throws InterruptedException {
         //BeforeMEthod
+        driver.get("https://login2.nextbasecrm.com/");
+        driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
+        Thread.sleep(3000);
+=======
+    public void User_Story_2_AC_3() throws InterruptedException {
+        //BeforeMEthod
+>>>>>>> 65c934d5a20e6bc4f7498fc551a6ab3559f9f3db
         driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
         driver.findElement(By.xpath("//span[.='Task']")).click();
@@ -103,6 +115,47 @@ public class User_Story_2_Test_Suit {
 
         WebElement actlyResul = driver.findElement(By.xpath("//span[.='myfile.txt']"));
         Assert.assertTrue(actlyResul.isDisplayed());
+<<<<<<< HEAD
+
+    }
+
+    @Test
+    public void User_Story_2_AC_4() throws InterruptedException {
+
+        WebElement task = driver.findElement(By.xpath("//div[@id='feed-add-post-form-tab']//span[@id='feed-add-post-form-tab-tasks']"));
+        task.click();
+        Thread.sleep(3000);
+
+        WebElement Quotetext = driver.findElement(By.xpath("//span[@id='bx-b-quote-task-form-lifefeed_task_form']"));
+        Thread.sleep(3000);
+        Quotetext.click();
+        //   WebElement iframe = driver.findElement(By.xpath("//div[@id='bx-html-editor-iframe-cnt-lifefeed_task_form']"));
+        //   driver.switchTo().frame(iframe);
+        //   driver.switchTo().frame(2);
+        Assert.assertTrue(Quotetext.isDisplayed(),"Text is not dispalyed verification failed!!!");
+    }
+
+    @Test//US1_AC#5:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
+    public void User_Story_2_AC_5() throws InterruptedException {
+
+        //beforeMethod
+        driver.findElement(By.name("USER_LOGIN")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.name("USER_PASSWORD")).sendKeys("UserUser"+ Keys.ENTER);
+        //US#2 Only:
+        driver.findElement(By.xpath("//span[.='Task']")).click();
+        Thread.sleep(3000);
+
+        //AC#5 Add mention icon and select contacts from the lists provided in dropdown
+        driver.findElement(By.xpath("//div[@id='feed-add-post-content-tasks']//span[@title='Add mention']")).click();
+        Thread.sleep(2000);
+        WebElement mention = driver.findElement(By.xpath("//span[@class='bx-finder-groupbox-content']//a[8]"));//a[i] -->can be more
+        String expectResult = mention.getText();
+        System.out.println("expectResult = " + expectResult);
+=======
+    public void User_Story_2_AC_2(){
+>>>>>>> 20de97a32cd4897b1f04292c9147b5888b0dce47
+=======
+>>>>>>> 65c934d5a20e6bc4f7498fc551a6ab3559f9f3db
 
     }
 
@@ -319,7 +372,7 @@ public class User_Story_2_Test_Suit {
 
         driver.findElement(By.id("feed_cal_event_to_timecal_3Jcl")).click();
 
-/*
+
 try {
 
 
@@ -341,7 +394,7 @@ try {
 
 }
 
- */
+
 
         WebElement eventRemainder = driver.findElement(By.id("event-remindercal_3Jcl"));
         Assert.assertTrue(eventRemainder.isSelected(),"Event Remainder is not selected");
@@ -405,4 +458,6 @@ try {
         Thread.sleep(3000);
         driver.close();
     }
+
+     */
 }
