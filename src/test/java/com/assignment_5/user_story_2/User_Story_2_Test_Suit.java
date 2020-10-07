@@ -256,7 +256,7 @@ public class User_Story_2_Test_Suit {
 
         WebElement event = driver.findElement(By.xpath("//span[.='Event']"));
         event.click();
-Thread.sleep(2000);
+        Thread.sleep(2000);
         WebElement eventName = driver.findElement(By.xpath("//input[@name='EVENT_NAME']"));
         eventName.sendKeys("Sprint Date");
         Thread.sleep(2000);
