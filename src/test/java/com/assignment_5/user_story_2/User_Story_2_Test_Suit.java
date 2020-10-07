@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_2_Test_Suit {
+    /*
+}
     WebDriver driver;
 
     @BeforeMethod
@@ -271,4 +273,6 @@ public class User_Story_2_Test_Suit {
         driver.manage().window().maximize();
         driver.close();
     }
+
+     */
 }

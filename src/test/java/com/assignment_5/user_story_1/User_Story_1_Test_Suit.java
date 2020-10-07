@@ -107,6 +107,32 @@ public class User_Story_1_Test_Suit {
         messagesend.click();
 
     }
+    @Test
+    public void User_Story_1_AC_9() throws InterruptedException {
+
+        driver.get("https://login2.nextbasecrm.com/");
+            driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
+            driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
+            WebElement message = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message']"));
+            message.click();
+            Thread.sleep(1000);
+            //  message.click();
+            WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
+            recordButton.click();
+
+            WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
+            deviceAccess.click();
+
+            WebElement resultText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+            Assert.assertTrue(resultText.isDisplayed(),"Result text is not dispalyed.Verification FAILED!!");
+
+            WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+
+            Assert.assertTrue(errorText.isDisplayed(),"Error text is not displayed.Verification Failed!!!");
+
+            errorText.click();
+        }
+
 
     @AfterMethod
     public void afterMethod(){
