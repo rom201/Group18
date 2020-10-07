@@ -146,5 +146,6 @@ public class User_Story_3_Test_Suit {
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
+        driver.close();
     }
 }
