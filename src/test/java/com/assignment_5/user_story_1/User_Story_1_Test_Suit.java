@@ -1,5 +1,6 @@
 package com.assignment_5.user_story_1;
 
+
 import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_Test_Suit {
     WebDriver driver;
@@ -21,21 +24,38 @@ public class User_Story_1_Test_Suit {
         driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
     }
 
-    @Test//1.	Users should be able to click on the upload files icon to upload files and images from local disks.
-    public void User_Story_1_AC_1() throws InterruptedException {
+    @Test
+    public void User_Story_1_AC_7(){
+        //PRE-CONDITION
 
-        WebElement Message = driver.findElement(By.xpath("//span[.='Message']"));
-        Message.click();
-        Thread.sleep(1000);
+        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
+        logInButtonElement.click();
+        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
+        messageButtonElement.click();
 
-        WebElement uploadFile = driver.findElement(By.id("bx-b-uploadfile-blogPostForm"));
-        uploadFile.click();
+        //TEST
+        WebElement visualEditorButtonElement = driver.findElement(By.xpath("//span[@id='lhe_button_editor_blogPostForm']"));
+        visualEditorButtonElement.click();
 
-        WebElement uploadFileAndImages = driver.findElement(By.xpath("//div[@class='diskuf-uploader']"));
-        //uploadFileAndImages.sendKeys("C:Users\\Resho\\Desktop\\Automation Task Photo\\Task5.4.jpg");
-        uploadFileAndImages.click();
-        Thread.sleep(3000);
+        WebElement editorTextBarElement = driver.findElement(By.xpath("//div[@class='bxhtmled-toolbar-cnt']"));
+        Assert.assertTrue(editorTextBarElement.isDisplayed(),"Editor-text bar is not displayed. Test FAILED!!!");
+    }
 
+    @Test
+    public void User_Story_1_AC_8(){
+        //PRE-CONDITION
+
+        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
+        logInButtonElement.click();
+        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
+        messageButtonElement.click();
+
+        //TEST
+        WebElement topicButtonElement = driver.findElement(By.xpath("//span[@onclick='showPanelTitle_blogPostForm(this);']"));
+        topicButtonElement.click();
+
+        WebElement topicTextBoxElement = driver.findElement(By.xpath("//div[@id='blog-title']"));
+        Assert.assertTrue(topicTextBoxElement.isDisplayed(),"Topic text box is not displayed. Test FAILED!!!");
 
     }
 
@@ -51,50 +71,16 @@ public class User_Story_1_Test_Suit {
         //Click "To"
         driver.findElement(By.xpath("//div[@id='feed-add-post-destination-container']")).click();
 
-        //delete exist text or emall
+        //Send email address as expectsResult
         WebElement toSendBox =driver.findElement(By.xpath("//input[@id='feed-add-post-destination-input']"));
-        toSendBox.sendKeys(Keys.BACK_SPACE);
-
-        //Click one of the email in the list
-        WebElement expectsResult = driver.findElement(By.xpath("//span[@class='bx-finder-groupbox false']//a[3]"));//a[x]: x>=1, x<=12
-        expectsResult.click();
+        String expectsResult ="test123@gmail.com";
+        toSendBox.sendKeys(Keys.BACK_SPACE+ expectsResult);
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//div[@id='feed-add-post-destination-container']")).click();
 
         //Verify test Pass or fail
         WebElement actuallyResults= driver.findElement(By.xpath("//span[@class='feed-add-post-destination-text']"));
-        Assert.assertEquals(expectsResult.getText(),actuallyResults.getText());
-    }
-
-    @Test
-    public void User_Story_1_AC_3() throws InterruptedException {
-
-
-
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message'] ")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//span[@title='Link'] ")).click();
-
-
-        String expectedText="Cybertek School";//expected
-        String email2="https://www.cybertekschool.com/";
-
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//input[@id='linkidPostFormLHE_blogPostForm-text'] ")).sendKeys(expectedText);
-        driver.findElement(By.xpath("//input[@id='linkidPostFormLHE_blogPostForm-href'] ")).sendKeys(email2);
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//input[@id='undefined'] ")).click();
-
-        Thread.sleep(3000);
-
-
-
-        driver.switchTo().frame(0);
-        String actuallyResult = driver.findElement(By.xpath("//a[.='"+expectedText+"']")).getText();
-        driver.switchTo().parentFrame();
-
-        Assert.assertEquals(expectedText,actuallyResult);
-
-
+        Assert.assertEquals(expectsResult,actuallyResults.getText());
 
     }
 
@@ -122,84 +108,8 @@ public class User_Story_1_Test_Suit {
 
     }
 
-    @Test
-    public void  User_Story_1_AC_6() throws InterruptedException {
-        Thread.sleep(3000);
-        WebElement messageBotton= driver.findElement(By.xpath("//span[.='Message']"));
-        messageBotton.click();
-        Thread.sleep(1000);
-        WebElement icon= driver.findElement(By.id("bx-b-mention-blogPostForm"));
-        icon.click();
-        Thread.sleep(1000);
-        WebElement user1=driver.findElement(By.xpath("//div[.='hr77@cybertekschool.com']"));
-        user1.click();
-        Thread.sleep(1000);
-        WebElement icon2= driver.findElement(By.id("bx-b-mention-blogPostForm"));
-        icon2.click();
-        Thread.sleep(1000);
-        WebElement user2=driver.findElement(By.xpath("//div[.='helpdesk27@cybertekschool.com']"));
-        user2.click();
-
-    }
-
-    @Test
-    public void User_Story_1_AC_7(){
-        //PRE-CONDITION
-
-        //WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
-        //logInButtonElement.click();
-        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
-        messageButtonElement.click();
-
-        //TEST
-        WebElement visualEditorButtonElement = driver.findElement(By.xpath("//span[@id='lhe_button_editor_blogPostForm']"));
-        visualEditorButtonElement.click();
-
-        WebElement editorTextBarElement = driver.findElement(By.xpath("//div[@class='bxhtmled-toolbar-cnt']"));
-        Assert.assertTrue(editorTextBarElement.isDisplayed(),"Editor-text bar is not displayed. Test FAILED!!!");
-    }
-
-    @Test
-    public void User_Story_1_AC_8(){
-        //PRE-CONDITION
-
-        // WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
-        //logInButtonElement.click();
-        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
-        messageButtonElement.click();
-
-        //TEST
-        WebElement topicButtonElement = driver.findElement(By.xpath("//span[@onclick='showPanelTitle_blogPostForm(this);']"));
-        topicButtonElement.click();
-
-        WebElement topicTextBoxElement = driver.findElement(By.xpath("//div[@id='blog-title']"));
-        Assert.assertTrue(topicTextBoxElement.isDisplayed(),"Topic text box is not displayed. Test FAILED!!!");
-
-    }
-
-    @Test
-    public void User_Story_1_AC_9(){
-    WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
-            recordButton.click();
-
-    WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
-            deviceAccess.click();
-
-    WebElement resultText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
-            Assert.assertTrue(resultText.isDisplayed(),"Result text is not dispalyed.Verification FAILED!!");
-
-    WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
-
-            Assert.assertTrue(errorText.isDisplayed(),"Error text is not displayed.Verification Failed!!!");
-
-            errorText.click();
-}
-
     @AfterMethod
     public void afterMethod(){
-
-
-        driver.close();
-
+        driver.manage().window().maximize();
     }
 }
