@@ -1,6 +1,5 @@
 package com.assignment_5.user_story_3;
 
-
 import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -102,14 +101,6 @@ public class User_Story_3_AC_2 {
         alert.accept();
 
     }
-
-
-
-
-
-
-
-
 
     @AfterMethod
     public void afterMethod(){

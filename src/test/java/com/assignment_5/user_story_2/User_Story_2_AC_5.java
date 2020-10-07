@@ -11,11 +11,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_2_AC_5 {
-
     WebDriver driver;
 
     @BeforeMethod
@@ -36,7 +34,7 @@ public class User_Story_2_AC_5 {
         System.out.println("expectResult = " + expectResult);
 
         mention.click();
-        List<WebElement> ifram = driver.findElements(By.xpath("//iframe[@class='bx-editor-iframe']"));
+       // List<WebElement> ifram = driver.findElements(By.xpath("//iframe[@class='bx-editor-iframe']"));
         driver.switchTo().frame(1);
         String actuallyResult = driver.findElement(By.xpath("//span[@class='bxhtmled-metion']")).getText();
         driver.switchTo().parentFrame();
@@ -44,11 +42,10 @@ public class User_Story_2_AC_5 {
         Assert.assertEquals(expectResult,actuallyResult);
     }
 
-
     @AfterMethod
     public void afterMethod(){
         driver.manage().window().maximize();
-        driver.close();
+        //driver.close();
     }
 
 }

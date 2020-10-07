@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_AC_4 {
-    WebDriver driver;
+        WebDriver driver;
 
         @BeforeMethod
         public void setUpDriver() {
@@ -48,12 +48,11 @@ public class User_Story_1_AC_4 {
             messagesend.click();
         }
 
-
-
         @AfterMethod
         public void closeWindow() {
             //   driver.close();
-        }}
+        }
+}
 
 
 

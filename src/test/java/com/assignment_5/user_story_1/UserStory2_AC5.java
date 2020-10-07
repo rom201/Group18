@@ -20,6 +20,7 @@ public class UserStory2_AC5 {
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
     }
+
     @Test
     public void user_story_2_ac_5() throws InterruptedException {
         driver.get("https://login2.nextbasecrm.com/");

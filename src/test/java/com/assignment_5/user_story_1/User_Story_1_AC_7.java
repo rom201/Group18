@@ -1,6 +1,5 @@
 package com.assignment_5.user_story_1;
 
-
 import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -41,11 +40,6 @@ public class User_Story_1_AC_7 {
 
 
     }
-
-
-
-
-
 
     @AfterMethod
     public void afterMethod(){

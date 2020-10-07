@@ -20,6 +20,7 @@ public class User_Story_1_AC_6 {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://login2.nextbasecrm.com/");
     }
+
     @Test
     public void  add_mention_icon(){
         WebElement userName= driver.findElement(By.xpath("//input[@type='text']"));
@@ -43,16 +44,5 @@ public class User_Story_1_AC_6 {
 
         WebElement user2=driver.findElement(By.xpath("//div[.='helpdesk27@cybertekschool.com']"));
         user2.click();
-
-
-
-
-
-
-
-
-
-
-
     }
 }

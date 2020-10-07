@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_AC_1 {
     WebDriver driver;
+
     @BeforeMethod
     public void setUpBrowser(){
         driver = WebDriverFactory.getDriver("chrome");
@@ -21,8 +22,8 @@ public class User_Story_1_AC_1 {
         driver.get("https://login2.nextbasecrm.com/?login=yes");
 
     }
-    //1.	Users should be able to click on the upload files icon to upload files and images from local disks.
-    @Test
+
+    @Test//1.	Users should be able to click on the upload files icon to upload files and images from local disks.
     public void fileUpload() throws InterruptedException {
         driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.xpath("//input[@name='USER_PASSWORD']")).sendKeys("UserUser");

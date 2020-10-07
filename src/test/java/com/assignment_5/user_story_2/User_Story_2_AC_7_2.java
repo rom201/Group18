@@ -1,6 +1,5 @@
 package com.assignment_5.user_story_2;
 
-
 import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +12,6 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_2_AC_7_2 {
-
-
     WebDriver driver;
 
     @BeforeMethod
@@ -60,7 +57,6 @@ public class User_Story_2_AC_7_2 {
 
 
     }
-
 
     @AfterMethod
     public void tearDown(){
