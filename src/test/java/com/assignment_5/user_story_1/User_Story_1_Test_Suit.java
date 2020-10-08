@@ -29,41 +29,6 @@ public class User_Story_1_Test_Suit {
     }
 
     @Test
-    public void User_Story_1_AC_7(){
-        //PRE-CONDITION
-
-        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
-        logInButtonElement.click();
-        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
-        messageButtonElement.click();
-
-        //TEST
-        WebElement visualEditorButtonElement = driver.findElement(By.xpath("//span[@id='lhe_button_editor_blogPostForm']"));
-        visualEditorButtonElement.click();
-
-        WebElement editorTextBarElement = driver.findElement(By.xpath("//div[@class='bxhtmled-toolbar-cnt']"));
-        Assert.assertTrue(editorTextBarElement.isDisplayed(),"Editor-text bar is not displayed. Test FAILED!!!");
-    }
-
-    @Test
-    public void User_Story_1_AC_8(){
-        //PRE-CONDITION
-
-        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
-        logInButtonElement.click();
-        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
-        messageButtonElement.click();
-
-        //TEST
-        WebElement topicButtonElement = driver.findElement(By.xpath("//span[@onclick='showPanelTitle_blogPostForm(this);']"));
-        topicButtonElement.click();
-
-        WebElement topicTextBoxElement = driver.findElement(By.xpath("//div[@id='blog-title']"));
-        Assert.assertTrue(topicTextBoxElement.isDisplayed(),"Topic text box is not displayed. Test FAILED!!!");
-
-    }
-
-    @Test
     public void User_Story_1_AC_2() throws InterruptedException {
         //BeforeMethod
 
@@ -111,6 +76,42 @@ public class User_Story_1_Test_Suit {
         messagesend.click();
 
     }
+
+    @Test
+    public void User_Story_1_AC_7(){
+        //PRE-CONDITION
+
+        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
+        logInButtonElement.click();
+        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
+        messageButtonElement.click();
+
+        //TEST
+        WebElement visualEditorButtonElement = driver.findElement(By.xpath("//span[@id='lhe_button_editor_blogPostForm']"));
+        visualEditorButtonElement.click();
+
+        WebElement editorTextBarElement = driver.findElement(By.xpath("//div[@class='bxhtmled-toolbar-cnt']"));
+        Assert.assertTrue(editorTextBarElement.isDisplayed(),"Editor-text bar is not displayed. Test FAILED!!!");
+    }
+
+    @Test
+    public void User_Story_1_AC_8(){
+        //PRE-CONDITION
+
+        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
+        logInButtonElement.click();
+        WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
+        messageButtonElement.click();
+
+        //TEST
+        WebElement topicButtonElement = driver.findElement(By.xpath("//span[@onclick='showPanelTitle_blogPostForm(this);']"));
+        topicButtonElement.click();
+
+        WebElement topicTextBoxElement = driver.findElement(By.xpath("//div[@id='blog-title']"));
+        Assert.assertTrue(topicTextBoxElement.isDisplayed(),"Topic text box is not displayed. Test FAILED!!!");
+
+    }
+
     @Test
     public void User_Story_1_AC_9() throws InterruptedException {
 
@@ -133,7 +134,6 @@ public class User_Story_1_Test_Suit {
 
             errorText.click();
         }
-
 
     @AfterMethod
     public void afterMethod(){
