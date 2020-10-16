@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -56,25 +57,30 @@ public class User_Story_3_AC_7 {
 
             switch (eachOption.getText()) {
                 case "minutes":
-                    numberOfTime.sendKeys(faker.number().digit());
+                    int minutes =faker.number().numberBetween(1,59);
+                    numberOfTime.sendKeys(minutes+"");
                     SelectRemindType.selectByVisibleText("hours");
                     Thread.sleep(2000);
                     break;
 
                 case "hours":
                     numberOfTime.sendKeys(Keys.BACK_SPACE);
-                    numberOfTime.sendKeys(faker.number().digit());
+                    int hours =faker.number().numberBetween(1,12);
+                    numberOfTime.sendKeys(hours+"");
                     Thread.sleep(2000);
                     SelectRemindType.selectByVisibleText("days");
                     Thread.sleep(2000);
                     break;
                 case "days":
                     numberOfTime.sendKeys(Keys.BACK_SPACE);
-                    numberOfTime.sendKeys(faker.number().digit());
+                    int days =faker.number().numberBetween(1,7);
+                    numberOfTime.sendKeys(days+"");
                     Thread.sleep(2000);
                     break;
             }
         }
+
+        Assert.assertTrue(SelectRemindType.getFirstSelectedOption().isDisplayed());
 
     }
     @AfterMethod
