@@ -154,6 +154,40 @@ public class User_Story_2_Test_Suit {
         Assert.assertEquals(expectResult,actuallyResult);
     }
 
+    @Test
+    public void UserStory2_AC6() throws InterruptedException {
+        //@BeforeMethod
+        WebElement UsernameInputBox = driver.findElement(By.xpath("(//input[@class='login-inp'])[1]"));
+        UsernameInputBox.sendKeys("helpdesk18@cybertekschool.com");
+        WebElement PasswordInputBox = driver.findElement(By.xpath("(//input[@class='login-inp'])[2]"));
+        PasswordInputBox.sendKeys("UserUser"+ Keys.ENTER);
+
+
+        WebElement TaskTab =driver.findElement(By.xpath("//span[.='Task']/span"));
+        TaskTab.click();
+        Thread.sleep(2000);
+
+        WebElement LinkIcon =driver.findElement(By.xpath("(//div[@id='post-buttons-bottom'])[3]//i[1]"));
+        LinkIcon.click();
+
+        WebElement LinkInput =driver.findElement(By.xpath("//table[@class='bxhtmled-dialog-tbl bxhtmled-dialog-tbl-collapsed']//td//input[@id='linklifefeed_task_form-href']"));
+        LinkInput.sendKeys("https://login2.nextbasecrm.com/");
+
+        WebElement SaveButton = driver.findElement(By.xpath("//input[@id='undefined']"));
+        Thread.sleep(2000);
+        SaveButton.click();
+
+        WebElement iframe = driver.findElement(By.xpath("(//iframe[@class='bx-editor-iframe'])[2]"));
+        driver.switchTo().frame(iframe);
+
+        WebElement URL =driver.findElement(By.xpath("//a[@href='https://login2.nextbasecrm.com/']"));
+        Assert.assertTrue(URL.isDisplayed(),"URL is not displayed.Verification failed!");
+        driver.switchTo().defaultContent();
+        //WebElement SendButton =driver.findElement(By.xpath("//button[@id='blog-submit-button-save']"));
+        //SendButton.click();
+    }
+
+
     @Test//US2_AC#7_1
     public void User_Story_2_AC_7_1_Checklist_Add_CheckMark() throws InterruptedException{
 
@@ -256,7 +290,7 @@ public class User_Story_2_Test_Suit {
 
         WebElement event = driver.findElement(By.xpath("//span[.='Event']"));
         event.click();
-Thread.sleep(2000);
+        Thread.sleep(2000);
         WebElement eventName = driver.findElement(By.xpath("//input[@name='EVENT_NAME']"));
         eventName.sendKeys("Sprint Date");
         Thread.sleep(2000);
