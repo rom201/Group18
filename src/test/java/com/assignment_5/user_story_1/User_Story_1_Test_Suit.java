@@ -139,6 +139,7 @@ public class User_Story_1_Test_Suit {
         errorText.click();
 
     }
+
     @AfterMethod
     public void afterMethod() {
         driver.manage().window().maximize();
