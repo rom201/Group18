@@ -24,10 +24,6 @@ public class User_Story_1_Test_Suit {
         driver.get("https://login2.nextbasecrm.com/");
         driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
-
-
-
-
     }
 
     @Test
