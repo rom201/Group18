@@ -39,24 +39,12 @@ public class User_Story_2_AC_4 {
            WebElement Quotetext = driver.findElement(By.xpath("//span[@id='bx-b-quote-task-form-lifefeed_task_form']"));
            Thread.sleep(3000);
             Quotetext.click();
-   //     WebElement blockquote =  driver.findElement(By.xpath("//blockquote[@class='bxhtmled-quote']"));
-        //   blockquote.sendKeys("If everyone is moving forward together, then success takes care of itself.");
-        //    blockquote.submit();
-        //blockquote[@class='bxhtmled-quote']
+
 
         Assert.assertTrue(Quotetext.isDisplayed(),"Text is not dispalyed verification failed!!!");
 
 
-        //   WebElement Quote = driver.findElement(By.xpath("//body[@contenteditable='true']/blockquote"));
-       //   Quote.click();
-
-         //   WebElement iframe = driver.findElement(By.id("bx-editor-iframe"));
-           // driver.switchTo().frame(iframe);
-
-    //      WebElement iframe = driver.findElement(By.xpath("bx-editor-iframe"));
-      //      driver.switchTo().frame(iframe);
-        //    driver.switchTo().frame(2);
-
+     
     }
 
     @AfterMethod

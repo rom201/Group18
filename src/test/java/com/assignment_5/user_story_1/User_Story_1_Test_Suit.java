@@ -123,7 +123,7 @@ public class User_Story_1_Test_Suit {
             driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         }
         @Test
-        public void insertVideo()  AWTException {
+        public void insertVideo() throws InterruptedException, AWTException {
             driver.get("https://login2.nextbasecrm.com/");
             driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
             driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
@@ -155,7 +155,7 @@ public class User_Story_1_Test_Suit {
 
         }
         @AfterMethod
-        public void close(){
+        public void close() throws InterruptedException {
             Thread.sleep(3000);
             driver.close();
         }
