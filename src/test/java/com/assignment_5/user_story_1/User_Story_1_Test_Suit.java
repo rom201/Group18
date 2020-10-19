@@ -116,6 +116,7 @@ public class User_Story_1_Test_Suit {
         message.click();
         Thread.sleep(1000);
 
+
         WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
         recordButton.click();
         WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
@@ -135,11 +136,11 @@ public class User_Story_1_Test_Suit {
         Thread.sleep(3000);
         Thread.sleep(2000);
 
+
         WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
         errorText.click();
 
-    }
-
+      }
     @AfterMethod
     public void afterMethod() {
         driver.manage().window().maximize();
