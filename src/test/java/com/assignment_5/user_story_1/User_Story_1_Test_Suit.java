@@ -11,6 +11,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_Test_Suit {
@@ -22,10 +24,6 @@ public class User_Story_1_Test_Suit {
         driver.get("https://login2.nextbasecrm.com/");
         driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
-
-
-
-
     }
 
     @Test
@@ -81,8 +79,7 @@ public class User_Story_1_Test_Suit {
     public void User_Story_1_AC_7(){
         //PRE-CONDITION
 
-        WebElement logInButtonElement = driver.findElement(By.xpath("//input[@type='submit']"));
-        logInButtonElement.click();
+
         WebElement messageButtonElement = driver.findElement(By.xpath("//span[@class='feed-add-post-form-link feed-add-post-form-link-active']"));
         messageButtonElement.click();
 
@@ -113,31 +110,40 @@ public class User_Story_1_Test_Suit {
     }
 
     @Test
-    public void User_Story_1_AC_9() throws InterruptedException {
-
+    public void User_Story_1_AC_9() throws InterruptedException, AWTException {
         WebElement message = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message']"));
         message.click();
+        Thread.sleep(1000);
+
+
+        WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
+        recordButton.click();
+        WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
+        deviceAccess.click();
+//
+        Robot robot = new Robot();
         Thread.sleep(3000);
-            WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
-            recordButton.click();
+        robot.keyPress(KeyEvent.VK_TAB);
+        Thread.sleep(3000);
+        robot.delay(100);
+        Thread.sleep(3000);
+        robot.keyPress(KeyEvent.VK_TAB);
+        Thread.sleep(3000);
+        robot.delay(100);
+        Thread.sleep(3000);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        Thread.sleep(3000);
+        Thread.sleep(2000);
 
-            WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
-           Thread.sleep(3000);
-            deviceAccess.click();
 
-            WebElement resultText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
-            Assert.assertTrue(resultText.isDisplayed(),"Result text is not dispalyed.Verification FAILED!!");
-           Thread.sleep(3000);
-            WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
-            Thread.sleep(3000);
-            Assert.assertTrue(errorText.isDisplayed(),"Error text is not displayed.Verification Failed!!!");
+        WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
+        errorText.click();
 
-            errorText.click();
-        }
-
+      }
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod() {
         driver.manage().window().maximize();
         driver.close();
     }
+
 }
