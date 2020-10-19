@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_Test_Suit {
@@ -115,18 +116,6 @@ public class User_Story_1_Test_Suit {
     @Test
     public void User_Story_1_AC_9() throws InterruptedException, AWTException {
 
-        WebDriver driver;
-        @BeforeMethod
-        public void setUpDriver() {
-            driver = WebDriverFactory.getDriver("Chrome");
-            driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        }
-        @Test
-        public void insertVideo() throws InterruptedException, AWTException {
-            driver.get("https://login2.nextbasecrm.com/");
-            driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
-            driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
             WebElement message = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message']"));
             message.click();
             Thread.sleep(1000);
@@ -154,12 +143,6 @@ public class User_Story_1_Test_Suit {
             errorText.click();
 
         }
-        @AfterMethod
-        public void close() throws InterruptedException {
-            Thread.sleep(3000);
-            driver.close();
-        }
-    }
 
     @AfterMethod
     public void afterMethod(){

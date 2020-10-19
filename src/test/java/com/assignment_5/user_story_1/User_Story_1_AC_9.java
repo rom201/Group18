@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_AC_9 {
@@ -36,7 +37,7 @@ public class User_Story_1_AC_9 {
         recordButton.click();
         WebElement deviceAccess = driver.findElement(By.xpath("//div[@class='popup-window-buttons']//span[@class='popup-window-button popup-window-button-blue']"));
         deviceAccess.click();
-//
+
         Robot robot = new Robot();
         Thread.sleep(3000);
         robot.keyPress(KeyEvent.VK_TAB);
