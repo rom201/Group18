@@ -31,17 +31,13 @@ public class User_Story_2_AC_4 {
             driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
             Thread.sleep(3000);
 
+        WebElement taskButton = driver.findElement(By.xpath("//div[@class='feed-add-post-form-variants']//span[@id='feed-add-post-form-tab-tasks']"));
+        taskButton.click();
+        Thread.sleep(3000);
+        WebElement quotetext = driver.findElement(By.xpath("//div[@class='feed-add-post-form-but-wrap']//span[@id='bx-b-mention-task-form-lifefeed_task_form']"));
+        quotetext.click();
 
-            WebElement task = driver.findElement(By.xpath("//div[@id='feed-add-post-form-tab']//span[@id='feed-add-post-form-tab-tasks']"));
-            task.click();
-            Thread.sleep(3000);
-
-           WebElement Quotetext = driver.findElement(By.xpath("//span[@id='bx-b-quote-task-form-lifefeed_task_form']"));
-           Thread.sleep(3000);
-            Quotetext.click();
-
-
-        Assert.assertTrue(Quotetext.isDisplayed(),"Text is not dispalyed verification failed!!!");
+        Assert.assertTrue(quotetext.isDisplayed(),"Text is not dispalyed verification failed!!!");
 
 
      
