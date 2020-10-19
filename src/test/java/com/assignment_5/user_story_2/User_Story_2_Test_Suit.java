@@ -180,7 +180,6 @@ public class User_Story_2_Test_Suit {
         //SendButton.click();
     }
 
-
     @Test//US2_AC#7_1
     public void User_Story_2_AC_7_1_Checklist_Add_CheckMark() throws InterruptedException{
 

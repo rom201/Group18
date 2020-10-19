@@ -24,10 +24,6 @@ public class User_Story_1_Test_Suit {
         driver.get("https://login2.nextbasecrm.com/");
         driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
         driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
-
-
-
-
     }
 
     @Test
@@ -116,10 +112,10 @@ public class User_Story_1_Test_Suit {
 
     @Test
     public void User_Story_1_AC_9() throws InterruptedException, AWTException {
-
         WebElement message = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message']"));
         message.click();
         Thread.sleep(1000);
+
 
         WebElement recordButton = driver.findElement(By.xpath("//span[@class='feed-add-post-form-but-cnt feed-add-videomessage']"));
         recordButton.click();
@@ -140,13 +136,15 @@ public class User_Story_1_Test_Suit {
         Thread.sleep(3000);
         Thread.sleep(2000);
 
+
         WebElement errorText = driver.findElement(By.xpath("//span[@class='popup-window-button popup-window-button-blue']"));
         errorText.click();
 
-    }
+      }
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod() {
         driver.manage().window().maximize();
         driver.close();
     }
+
 }
